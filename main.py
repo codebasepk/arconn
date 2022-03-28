@@ -39,7 +39,7 @@ try:
         print("sun_set", sun_set_time)
 
         print('On {} the sun at Multan   raised at {} and get down at {}.'.
-              format(today_date, sun_rise_time.strftime('%H:%M'), sun_set_time.strftime('%H:%M')))
+              format(today_date, sun_rise_time.strftime('%H:%M'), sun_set.strftime('%H:%M')))
 
         current_time = datetime.now()
         current_time_24 = current_time.strftime("%Y-%m-%d %H:%M")
