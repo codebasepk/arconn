@@ -4,11 +4,12 @@ import sched
 from datetime import date, datetime, timedelta
 from suntime import Sun, SunTimeException
 
-s = sched.scheduler(time.time, time.sleep)
-now = datetime.now()
+def delay_timings():
+    delay_timings.s = sched.scheduler(time.time, time.sleep)
+    now = datetime.now()
 
-run_at = now + timedelta(seconds=20)
-delay = (run_at - now).total_seconds()
+    run_at = now + timedelta(seconds=20)
+    delay_timings.delay = (run_at - now).total_seconds()
 
 
 def light_on_off(time_):
@@ -40,20 +41,21 @@ def light_on_off(time_):
     elif current_time_24 == sun_set_time:
         GPIO.output(20, GPIO.LOW)
 
-    s.enter(delay, 1, light_on_off, (time_,))
+    delay_timings.s.enter(delay_timings.delay, 1, light_on_off, (time_,))
 
 
 class ARConn:
+    delay_timings()
     try:
-        print(delay)
-        print(run_at)
-        time_ = s
+        print(delay_timings.delay)
+        # print(run_at)
+        time_ = delay_timings.s
 
         def __init__(self, time_):
             self.time = time_
 
-        s.enter(delay, 1, light_on_off, (s,))
-        s.run()
+        delay_timings.s.enter(delay_timings.delay, 1, light_on_off, (delay_timings.s,))
+        delay_timings.s.run()
     finally:
         GPIO.cleanup()
 
