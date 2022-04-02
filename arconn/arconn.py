@@ -123,7 +123,7 @@ class ARConn:
     try:
         time_ = delay_timings.s
 
-        get_states()
+        self.get_states()
         # Calling func for getting the sun set and rise time in seconds to set the scheduler
         get_sun_timings()
 
