@@ -23,3 +23,5 @@ parts:
 apps:
   arconn:
     command: bin/main
+    plugs:
+      - gpio
