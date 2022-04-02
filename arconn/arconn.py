@@ -1,5 +1,6 @@
 # import RPi.GPIO as GPIO
 import time
+import os
 import sched
 from datetime import date, datetime, timedelta
 from suntime import Sun, SunTimeException
