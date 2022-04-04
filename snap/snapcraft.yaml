@@ -23,5 +23,6 @@ parts:
 apps:
   arconn:
     command: bin/main
+    daemon: simple
     plugs:
       - gpio
