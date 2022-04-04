@@ -70,12 +70,14 @@ class GpioControll:
             return False
 
     def set_out_high(self, pin_number):
+
         done = self._set('out', pin_number, GPIO_OUT_ON)
         # self.get_states()
         # if done:
         #     self.publish('org.deskconn.piconn.gpio.on_out_high', pin_number)
 
     def set_out_low(self, pin_number):
+
         done = self._set('out', pin_number, GPIO_OUT_OFF)
         # self.get_states()
         # if done:
@@ -107,17 +109,21 @@ def light_on(time_):
         #print("On")
         # GPIO.output(20, GPIO.LOW)
     arcon1 = GpioControll()
-    arcon1.set_out_high(20)
+    if GPIO_OUT_OFF:
+        arcon1.set_out_high(20)
+    print("on")
 
     delay_timings.s.enter(sun_set_seconds, 1, light_on, (time_,))
 
 
 def light_off(time_):
     #if GPIO.LOW:
-    print("Off")
     # GPIO.output(20, GPIO.HIGH)
     arcon1 = GpioControll()
-    arcon1.set_out_low(20)
+    if GPIO_OUT_ON:
+        print("Off")
+
+        arcon1.set_out_low(20)
 
     delay_timings.s.enter(sun_rise_seconds, 1, light_off, (time_,))
 
