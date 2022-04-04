@@ -91,11 +91,13 @@ class ARConn:
 
     def set_out_high(self, pin_number):
         done = self._set('out', pin_number, GPIO_OUT_ON)
+        self.get_states()
         # if done:
         #     self.publish('org.deskconn.piconn.gpio.on_out_high', pin_number)
 
     def set_out_low(self, pin_number):
         done = self._set('out', pin_number, GPIO_OUT_OFF)
+        self.get_states()
         # if done:
             # self.publish('org.deskconn.piconn.gpio.on_out_low', pin_number_number)
 
@@ -123,7 +125,7 @@ class ARConn:
     try:
         time_ = delay_timings.s
 
-        self.get_states()
+        # get_states
         # Calling func for getting the sun set and rise time in seconds to set the scheduler
         get_sun_timings()
 
