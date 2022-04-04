@@ -59,7 +59,8 @@ def light_on(time_):
     # if GPIO.HIGH:
         #print("On")
         # GPIO.output(20, GPIO.LOW)
-    ARConn.set_out_high(20)
+    arcon1 = ARConn(time_)
+    arcon1.set_out_high(20)
 
     delay_timings.s.enter(sun_set_seconds, 1, light_on, (time_,))
 
@@ -68,7 +69,8 @@ def light_off(time_):
     #if GPIO.LOW:
     print("Off")
     # GPIO.output(20, GPIO.HIGH)
-    ARConn.set_out_low(20)
+    arcon1 = ARConn(time_)
+    arcon1.set_out_low(20)
 
     delay_timings.s.enter(sun_rise_seconds, 1, light_off, (time_,))
 
