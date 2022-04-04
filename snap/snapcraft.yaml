@@ -26,3 +26,6 @@ apps:
     daemon: simple
     plugs:
       - gpio
+
+system-usernames:
+    snap_daemon: shared
