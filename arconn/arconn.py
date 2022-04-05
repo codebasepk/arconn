@@ -25,7 +25,7 @@ def get_sun_timings():
     today_date = datetime.today()
 
     sun_rise_time = get_sun_time.get_local_sunrise_time(today_date)
-    sun_set_time = get_sun_time.get_local_sunset_time(today_date) - timedelta(hours=5)
+    sun_set_time = get_sun_time.get_local_sunset_time(today_date)
 
     global sun_set_seconds
     global sun_rise_seconds
