@@ -32,8 +32,6 @@ def get_sun_timings():
 
     sun_set_seconds = sun_set_time.timestamp()
     sun_rise_seconds = sun_rise_time.timestamp()
-    print('On {} the sun at Multan   raised at {} and get down at {}.'.
-          format(today_date, sun_rise_time.strftime('%H:%M'), sun_set_time.strftime('%H:%M')))
 
 
 def light_on_off(time_):
@@ -42,16 +40,12 @@ def light_on_off(time_):
 
 
 def light_on(time_):
-    if GPIO_OUT_OFF:
-        set_out_high(20)
-        print("on")
+    set_out_high(20)
     light_scheduler.enter(sun_set_seconds, 1, light_on, (time_,))
 
 
 def light_off(time_):
-    if GPIO_OUT_ON:
-        set_out_low(20)
-        print("off")
+    set_out_low(20)
     light_scheduler.enter(sun_rise_seconds, 1, light_off, (time_,))
 
 
