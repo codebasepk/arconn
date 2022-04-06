@@ -61,7 +61,7 @@ class ARConn:
         get_sun_timings()
 
         # Scheduling sun set and rise time
-        light_scheduler.repeat_on_days('MTWTFSs', time(16, 5), 0, light_on_off)
+        light_scheduler.repeat_on_days('MTWTFSs', time(3, 00), 0, light_on_off)
 
         # Running scheduler
         light_scheduler.run()
