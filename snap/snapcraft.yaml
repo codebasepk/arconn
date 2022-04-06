@@ -1,6 +1,6 @@
 name: arconn
 base: core20
-version: '1.0'
+version: '1.0.1'
 summary: Raspberry pi light automation
 description: |
   Home single light get turns on sun set time turns off when sun rise using Raspberry pi 
