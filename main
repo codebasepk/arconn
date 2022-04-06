@@ -4,7 +4,7 @@ from arconn.arconn import ARConn
 
 
 def main():
-    ar_conn = ARConn(ARConn.time_)
+    ar_conn = ARConn()
     print(ar_conn)
 
 

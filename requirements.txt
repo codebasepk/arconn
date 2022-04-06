@@ -1,1 +1,4 @@
-suntime
+suntime~=1.2.5
+timesched~=1.6
+arconn~=1.0
+setuptools~=59.6.0
