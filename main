@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
 
 from arconn.arconn import ARConn
+from autobahn.twisted.wamp import ApplicationRunner
+import asyncio
+from threading import Thread
+from time import sleep
+
+
+def task_thread():
+    ar_conn = ARConn()
+    asyncio.run(ar_conn.start())
 
 
 def main():
-    ar_conn = ARConn()
-    print(ar_conn)
+    Thread(target=task_thread).start()
+
+    runner = ApplicationRunner(url="ws://0.0.0.0:8080/ws", realm="realm1")
+    runner.run(ARConn)
 
 
 if __name__ == '__main__':

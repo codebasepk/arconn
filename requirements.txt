@@ -1,2 +1,2 @@
 suntime
-timesched
+autobahn[twisted,serialization]
