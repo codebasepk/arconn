@@ -8,7 +8,7 @@ from threading import Thread
 
 def task_thread():
     ar_conn = ARConn()
-    asyncio.run(ar_conn.start())
+    asyncio.run(ar_conn.start(True))
 
 
 def main():
