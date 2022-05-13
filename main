@@ -4,12 +4,11 @@ from arconn.arconn import ARConn
 from autobahn.twisted.wamp import ApplicationRunner
 import asyncio
 from threading import Thread
-from time import sleep
 
 
 def task_thread():
     ar_conn = ARConn()
-    asyncio.run(ar_conn.start())
+    asyncio.run(ar_conn.start(True))
 
 
 def main():
